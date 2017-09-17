@@ -1,0 +1,21 @@
+说明文档
+创建一个app python manage.py startapp mainsite(app name)
+
+创建db.sqlite3文件 python manage.py migrate 此网站中添加到数据库的数据都会被放在db.sqlite3文件中
+
+Django的数据库是以model的方式操作的，在程序中不直接面对数据，用class类线创建好model，通过对model操作来操作数据库。
+
+创建模型Model(1创建表)，并更新模型中的内容(2添加字段，更新内容)
+1. python manage.py makemigrations mainsite(app name)创建数据库和django中间的介质文件。创建的模型在数据库去生成表。
+2. python manage.py migrate同步更新数据库的内容
+
+以timezone.now的方式生成时间，需要pytz模块  pip install pytz
+
+创建管理员账号
+python manage.py createsuperuser
+账号Tim  密码tim123456
+
+每个输出的网页都可以准备一个或一多个对应的模板(template),这些模板以.html的文件形式存储在制定的文件夹中(一般命名templates，在setting中设置文件夹的位置)，
+当网站要输出数据时，通过渲染函数render吧数据放到模板制定的位置中，得到结果后交给httpresponse输出给浏览器
+
+locals()函数会版当前内存中的所有局部变量使用字典类型打包起来，可以把所有变量放到模板中

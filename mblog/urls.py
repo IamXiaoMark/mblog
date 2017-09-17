@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from mainsite.views import homepage
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', homepage) #“^”表示字符串开头，“$”表示字符串结尾，两个字符接在一起，指根网址，即http://192.168.1.105:8000/会调用homepage函数
 ]
